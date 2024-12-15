@@ -26,3 +26,34 @@ button {
 .negative {
   color: red;
 }
+
+.tweet {
+  border: solid;
+  padding: .5em;
+  margin: 1em 0em;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+article {
+  margin: 1em 0em;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: solid;
+  padding: .5em 0em;
+}
+.tweet-icons {
+  color:rgb(48, 48, 184);
+  cursor: pointer;
+}
+i:hover {
+  color: rgb(207, 173, 20);
+}
+.tweet:hover {
+  box-shadow: 8px 8px 0px -4px rgba(191,187,240,1);
+}
