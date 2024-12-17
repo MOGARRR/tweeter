@@ -6,10 +6,19 @@
 
 header {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
-article {
+.header-info {
+  font-size: larger;
+  margin: 0em .5em ;
+}
+#header-handle {
+  color: rgba(97, 97, 97, 0.979);
+  margin-left: 60%;
+}
+
+p {
   margin: 1em 0em;
 }
 footer {
