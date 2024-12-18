@@ -18,9 +18,13 @@ $(document).ready(function() {
         type:'POST',
         url: '/tweets',
         data: data,
-      });
+      }).then(() => {
+        loadTweets();
+      }).catch((err) => {
+        console.log(err);
+      })
     }
-    
+    $('textarea').val('');
   });
 
   const loadTweets = () => {
@@ -43,7 +47,7 @@ const createTweetElement = (tweetObject) => {
   <article class="tweet">
     <header>
       <img src="${tweetObject.user.avatars}" alt="">
-      <span class="header-info"> ${tweetObject.user.name} </span>
+      <span class="header-info" id="header-name"> ${tweetObject.user.name} </span>
       <div class="header-info" id="header-handle">${tweetObject.user.handle}</div>
     </header>
     <p>${tweetObject.content.text}</p>
@@ -61,6 +65,6 @@ const createTweetElement = (tweetObject) => {
 const renderTweets = (tweetsArray) => {
   for (const tweet of tweetsArray) {
     let $tweet = createTweetElement(tweet);
-    $('#tweets-container').append($tweet);
+    $('#tweets-container').prepend($tweet);
   }
 }
