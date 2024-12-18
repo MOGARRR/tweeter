@@ -40,7 +40,7 @@ const createTweetElement = (tweetObject) => {
     </header>
     <p>${tweetObject.content.text}</p>
     <footer>
-      <small>${tweetObject.created_at}</small>
+      <small>${timeago.format(tweetObject.created_at)}</small>
       <div class="tweet-icons">
         <i class="fa-solid fa-flag"></i>
         <i class="fa-solid fa-retweet"></i>
