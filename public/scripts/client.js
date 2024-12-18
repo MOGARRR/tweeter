@@ -8,11 +8,19 @@ $(document).ready(function() {
   $('form').on( 'submit', function( event ) {
     event.preventDefault();
     const data = $(this).serialize();
-    $.ajax({
-      type:'POST',
-      url: '/tweets',
-      data: data,
-    });
+    const charCounter = $(this).parents().find('.counter'); // to check of char counter is over limit
+    if(data === 'text=') { // default value for empty post
+      return alert('Cannot post empty Tweet');
+    } else if ($(charCounter).hasClass('negative')) {
+      return alert('Cannot post tweet above 140 characters')
+    } else {
+      $.ajax({
+        type:'POST',
+        url: '/tweets',
+        data: data,
+      });
+    }
+    
   });
 
   const loadTweets = () => {
