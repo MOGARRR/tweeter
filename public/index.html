@@ -47,7 +47,11 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section>
-        <h2>Create Tweet</h2>
+        <div name="warning" class="warning hidden">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span id="warning-message"></span>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
         <form method="POST" action="/tweets" class="tweet-form">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>

@@ -10,21 +10,22 @@ $(document).ready(function() {
     const data = $(this).serialize();
     const charCounter = $(this).parents().find('.counter'); // to check of char counter is over limit
     if(data === 'text=') { // default value for empty post
-      return alert('Cannot post empty Tweet');
+      return $('.warning').removeClass('hidden') && $('#warning-message').text('Cannot Post Empty Tweet!');
     } else if ($(charCounter).hasClass('negative')) {
-      return alert('Cannot post tweet above 140 characters')
+      return $('.warning').removeClass('hidden') && $('#warning-message').text('Tweet Cannot Have More Than 140 Characters!');
     } else {
+      $('.warning').addClass('hidden');
       $.ajax({
         type:'POST',
         url: '/tweets',
         data: data,
       }).then(() => {
+        $('textarea').val('');
         loadTweets();
       }).catch((err) => {
         console.log(err);
       })
     }
-    $('textarea').val('');
   });
 
   const loadTweets = () => {
