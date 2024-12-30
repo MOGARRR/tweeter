@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   $('form').on( 'submit', function( event ) {
     event.preventDefault();
-    const data = $(this).serialize();
+    const data = $(this).serialize(); // FIGURE OUT CROSS SCRIPT HERE!!!!
     const charCounter = $(this).parents().find('.counter'); // to check of char counter is over limit
     if(data === 'text=') { // default value for empty post
       return $('.warning').removeClass('hidden') && $('#warning-message').text('Cannot Post Empty Tweet!');
@@ -21,7 +21,9 @@ $(document).ready(function() {
         data: data,
       }).then(() => {
         $('textarea').val('');
+        $(charCounter).val(140);
         loadTweets();
+        
       }).catch((err) => {
         console.log(err);
       })
@@ -51,7 +53,7 @@ const createTweetElement = (tweetObject) => {
       <span class="header-info" id="header-name"> ${tweetObject.user.name} </span>
       <div class="header-info" id="header-handle">${tweetObject.user.handle}</div>
     </header>
-    <p>${tweetObject.content.text}</p>
+    <p>${escapeHtml(tweetObject.content.text)}</p>
     <footer>
       <small>${timeago.format(tweetObject.created_at)}</small>
       <div class="tweet-icons">
@@ -69,3 +71,10 @@ const renderTweets = (tweetsArray) => {
     $('#tweets-container').prepend($tweet);
   }
 }
+
+const escapeHtml = function (str) {
+  let p = document.createElement("p");
+  p.appendChild(document.createTextNode(str));
+  return p.innerHTML;
+};
+
