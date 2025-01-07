@@ -9,16 +9,23 @@ label {
 
 #new-tweet {
   display: flex;
-  justify-content: space-between;
   margin: 1em 0em;
 }
 
-
 .counter {
+  font-size: 36px;
   font-family: "Bungee", sans-serif;
+}
+textarea {
+ height: 5em;
 }
 
 button {
+  flex-grow: 1;
+  min-height: 3em;
+  margin: 0 .5em;
+  border-radius: 16px;
+  font-size: 36px;
   font-family: "Bungee", sans-serif;
   background-color:#4056A1;
   color: #f4f1ec;

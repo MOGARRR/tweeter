@@ -20,16 +20,34 @@ body {
   align-items: center;
   color: #545149;
   background-color: #f4f1ec;
-  font-size: 24px;
+  font-size: 32px;
   font-family: "Source Sans 3", sans-serif;
   padding-top: 120px;
 }
 main {
-  width: 90%;
-  margin: 0;
+  width: 100%;
   background-color: inherit;
+}
+section {
+  margin: 1em .5em;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ @media (min-width:1024px){
+  #desktop-layout {
+    display: flex;
+  }
+  #main-header{
+    flex: 1;
+    margin: 1em .5em;
+    border-radius: 16px;
+  }
+  #new-tweet-container{
+    flex: 1;
+    font-size: 36px;
+  }
+
+ }
