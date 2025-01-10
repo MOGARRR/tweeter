@@ -38,5 +38,5 @@ i:hover {
   color: rgb(207, 173, 20);
 }
 .tweet:hover {
-  box-shadow: 8px 8px 0px -4px rgba(191,187,240,1);
+  box-shadow: 8px 8px 0px -4px rgb(148, 142, 207);
 }

@@ -20,7 +20,7 @@ textarea {
  height: 5em;
 }
 
-button {
+.button {
   flex-grow: 1;
   min-height: 3em;
   margin: 0 .5em;
@@ -34,7 +34,6 @@ button {
 .warning {
   display: flex;
   justify-content: space-between;
-  margin: 1em 0em;
   padding: .5em;
   border: solid red;
   color: red;
@@ -46,4 +45,9 @@ button {
 
 .negative {
   color: red;
+}
+
+button:hover {
+  background-color:#31437c;
+  cursor: pointer;
 }

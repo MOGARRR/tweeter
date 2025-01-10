@@ -29,10 +29,10 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span id="logo">tweeter</span>
-      <div id="dropDown">
-        <span> Write a new tweet</span>
-        <i class="fa-solid fa-angles-down"></i>
-      </div>
+      <button id="dropDown">
+        Write a new tweet
+        <i class="fa-solid fa-angles-down nav-icon"></i>
+      </button>
     </nav>
 
     <!-- Header  -->
@@ -60,7 +60,7 @@
               <label for="tweet-text">What are you humming about?</label>
               <textarea name="text" id="tweet-text"></textarea>
               <div id="new-tweet">
-                <button type="submit">Tweet</button>
+                <button type="submit" class="button">Tweet</button>
                 <output name="counter" class="counter" for="tweet-text">140</output>
               </div>
             </form>

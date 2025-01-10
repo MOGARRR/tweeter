@@ -18,7 +18,29 @@ nav {
   display:flex;
   flex-direction: column;
   align-items: center;
+  margin: 0em 1em;
+  background-color:#4056A1;
+  color: #f4f1ec;
+  border: none;
+  cursor: pointer;
 }
+
 #logo{
   font-size: 48px;
+}
+
+#dropDown:hover {
+  color: rgb(207, 173, 20);
+}
+
+.nav-icon {
+  animation-name: nav-icon;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  position:relative;
+}
+@keyframes nav-icon {
+  0% {top: 0px;}
+  50% {top: 16px;}
+  100% {top: 0px;}
 }
