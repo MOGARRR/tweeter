@@ -4,10 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-
+  // Tweet POST request
   $('form').on( 'submit', function( event ) {
     event.preventDefault();
-    const data = $(this).serialize(); // FIGURE OUT CROSS SCRIPT HERE!!!!
+    const data = $(this).serialize();
     const charCounter = $(this).parents().find('.counter'); // to check of char counter is over limit
     if(data === 'text=') { // default value for empty post
       return $('.warning').removeClass('hidden') && $('#warning-message').text('Cannot Post Empty Tweet!');
@@ -38,6 +38,15 @@ $(document).ready(function() {
       console.log(err);
     })
   }
+
+  // New tweet toggle
+  $('#dropDown').on('click', () => {
+    if($('#new-tweet-container').hasClass('hidden')) {
+      return $('#new-tweet-container').removeClass('hidden') && $('#tweet-text').focus();
+    } else {
+      return $('#new-tweet-container').addClass('hidden') && $('#tweet-text').blur();
+    }
+  });
 
   loadTweets();
 });
@@ -72,6 +81,7 @@ const renderTweets = (tweetsArray) => {
   }
 }
 
+// XSS Security Function
 const escapeHtml = function (str) {
   let p = document.createElement("p");
   p.appendChild(document.createTextNode(str));

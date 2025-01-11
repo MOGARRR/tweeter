@@ -19,6 +19,7 @@ nav {
   flex-direction: column;
   align-items: center;
   margin: 0em 1em;
+  padding: 0em 1em;
   background-color:#4056A1;
   color: #f4f1ec;
   border: none;
@@ -35,12 +36,14 @@ nav {
 
 .nav-icon {
   animation-name: nav-icon;
-  animation-duration: 4s;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
   position:relative;
 }
+
 @keyframes nav-icon {
   0% {top: 0px;}
-  50% {top: 16px;}
+  50% {top: 18px;}
   100% {top: 0px;}
+
 }
