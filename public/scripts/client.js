@@ -22,48 +22,47 @@ $(document).ready(function() {
       }).then(() => {
         $('textarea').val('');
         $(charCounter).val(140);
-        loadTweets();
-        
+        loadTweets(false);
       }).catch((err) => {
         console.log(err);
       })
     }
   });
 
-  const loadTweets = () => {
+  const loadTweets = (startUp) => { //
     $.ajax('/tweets',{method:'GET'})
     .then((res) => {
-      renderTweets(res);
+      renderTweets(res,startUp);
     }).catch((err) => {
       console.log(err);
     })
   };
 
-  // New tweet toggle
-  $('#dropDown').on('click', () => {
-    if($('#new-tweet-container').hasClass('hidden')) {
-      return $('#new-tweet-container').removeClass('hidden') && $('#tweet-text').focus();
-    } else {
-      return $('#new-tweet-container').addClass('hidden') && $('#tweet-text').blur();
-    }
-  });
-  // Scroll button toggle
-  $(window).on('scroll', function(event){
-    let scrollPosition = this.scrollY;
-    if (scrollPosition > 400) {
-      return $('.scroll-button').removeClass('hidden');
-    }
-    if (scrollPosition < 400 && !$('.scroll-button').hasClass('hidden')){
-      return $('.scroll-button').addClass('hidden');
-    }
-  });
+    // New tweet toggle
+    $('#dropDown').on('click', () => {
+      if($('#new-tweet-container').hasClass('hidden')) {
+        return $('#new-tweet-container').removeClass('hidden') && $('#tweet-text').focus();
+      } else {
+        return $('#new-tweet-container').addClass('hidden') && $('#tweet-text').blur();
+      }
+    });
+    // Scroll button toggle
+    $(window).on('scroll', function(){
+      let scrollPosition = this.scrollY;
+      if (scrollPosition > 400) {
+        return $('.scroll-button').removeClass('hidden');
+      }
+      if (scrollPosition < 400 && !$('.scroll-button').hasClass('hidden')){
+        return $('.scroll-button').addClass('hidden');
+      }
+    });
+  
+    $('.scroll-button').on('click',() => {
+      window.scrollTo(0,0);
+      $('scroll-button').addClass('hidden');
+    });
 
-  $('.scroll-button').on('click',() => {
-    window.scrollTo(0,0);
-    $('scroll-button').addClass('hidden');
-  });
-
-  loadTweets();// issue with doubles. change to only render new tweet instead of whole array
+  loadTweets(true);
 });
 
 
@@ -89,10 +88,15 @@ const createTweetElement = (tweetObject) => {
   </article> `
 }
 
-const renderTweets = (tweetsArray) => {
-  for (const tweet of tweetsArray) {
-    let $tweet = createTweetElement(tweet);
-    $('#tweets-container').prepend($tweet);
+const renderTweets = (tweetsArray, startUp) => { 
+  if(startUp){ // intial page rendering
+    for (const tweet of tweetsArray) {
+      let $tweet = createTweetElement(tweet);
+      $('#tweets-container').prepend($tweet);
+    }
+  } else { // user adding tweet
+    let $tweet = createTweetElement(tweetsArray[tweetsArray.length - 1]);
+      $('#tweets-container').prepend($tweet);
   }
 }
 
@@ -102,4 +106,3 @@ const escapeHtml = function (str) {
   p.appendChild(document.createTextNode(str));
   return p.innerHTML;
 };
-
