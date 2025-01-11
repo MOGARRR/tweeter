@@ -37,7 +37,7 @@ $(document).ready(function() {
     }).catch((err) => {
       console.log(err);
     })
-  }
+  };
 
   // New tweet toggle
   $('#dropDown').on('click', () => {
@@ -47,8 +47,23 @@ $(document).ready(function() {
       return $('#new-tweet-container').addClass('hidden') && $('#tweet-text').blur();
     }
   });
+  // Scroll button toggle
+  $(window).on('scroll', function(event){
+    let scrollPosition = this.scrollY;
+    if (scrollPosition > 400) {
+      return $('.scroll-button').removeClass('hidden');
+    }
+    if (scrollPosition < 400 && !$('.scroll-button').hasClass('hidden')){
+      return $('.scroll-button').addClass('hidden');
+    }
+  });
 
-  loadTweets();
+  $('.scroll-button').on('click',() => {
+    window.scrollTo(0,0);
+    $('scroll-button').addClass('hidden');
+  });
+
+  loadTweets();// issue with doubles. change to only render new tweet instead of whole array
 });
 
 

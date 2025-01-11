@@ -22,7 +22,7 @@ body {
   background-color: #f4f1ec;
   font-size: 32px;
   font-family: "Source Sans 3", sans-serif;
-  padding-top: 120px;
+  padding: 120px 0px;
 }
 main {
   width: 100%;
@@ -30,6 +30,22 @@ main {
 }
 section {
   margin: 1em .5em;
+}
+.scroll-button {
+  height: 3.5em;
+  width: 3.5em;
+  border-radius: 50%;
+  border: none;
+  position: fixed;
+  background-color: rgb(247, 31, 31);
+  color: #f4f1ec;
+  bottom: 2%;
+  right: 1%;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 /*
