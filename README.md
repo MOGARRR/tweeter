@@ -12,9 +12,10 @@ Tweeter is a single-page Twitter clone to practice my **HTML**, **CSS**, **JS**,
 - Write and submit tweets to be viewed in feed with premade accounts,interaction icons, and timestamp display
 
 ## Final Product
-!["Tweeter mobile homepage UI"](./docs/TinyAppHomePage.PNG.png)
-<br>
-!["Tweeter Desktop homepage UI"](./docs/TinyAppHomePage.PNG.png)
+### Tweeter Desktop Version:
+!["Tweeter Desktop homepage UI"](./docs/Tweeter%20Desktop%20homepage.png)
+### Tweeter Mobile Version:
+!["Tweeter mobile homepage UI"](./docs/Tweeter%20Mobile%20homepage.png)
 
 ## Getting Started
 
